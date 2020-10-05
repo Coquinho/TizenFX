@@ -9,6 +9,19 @@
     <TizenPreloadFile Include="Tizen.NUI.preload" Sequence="30" />
   </ItemGroup>
 
+  <PropertyGroup>
+    <IsWindows Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' == 'true'">true</IsWindows>
+    <IsOsx Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))' == 'true'">true</IsOsx>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(IsWindows)'=='true'">
+    <DefineConstants>$(DefineConstants);NOTIZEN</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(IsOsx)'=='true'">
+    <DefineConstants>$(DefineConstants);NOTIZEN</DefineConstants>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.3.0" />
     <PackageReference Include="System.Reflection" Version="4.3.0" />

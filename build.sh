@@ -89,7 +89,7 @@ restore() {
 }
 
 build() {
-  dotnet build --no-restore -c $CONFIGURATION /fl $@
+  dotnet build --no-restore -c $CONFIGURATION -fl $@
 }
 
 copy_artifacts() {
