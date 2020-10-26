@@ -21,16 +21,7 @@
     <PackageTargetFallback>$(PackageTargetFallback);portable-net45+wp80+win81+wpa81</PackageTargetFallback>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <IsWindows Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::Windows)))' == 'true'">true</IsWindows>
-    <IsOsx Condition="'$([System.Runtime.InteropServices.RuntimeInformation]::IsOSPlatform($([System.Runtime.InteropServices.OSPlatform]::OSX)))' == 'true'">true</IsOsx>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(IsWindows)'=='true'">
-    <DefineConstants>$(DefineConstants);NOTIZEN</DefineConstants>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(IsOsx)'=='true'">
+  <PropertyGroup Condition="'$(NOTIZEN)'=='true'">
     <DefineConstants>$(DefineConstants);NOTIZEN</DefineConstants>
   </PropertyGroup>
 
